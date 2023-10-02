@@ -1,0 +1,317 @@
+
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+   .review-img{
+      width: 250px;
+   }
+   #loading-box{
+      display: flex;
+      justify-content: center;
+      margin: 2rem auto;
+   }
+</style>
+
+
+<section class="banner_main" style="
+background: url( {% static 'images/back.jfif' %}));">
+   <div class="container">
+      {% if alert %}
+      <div class="alert alert-success" role="alert">
+         A simple success alert—check it out!
+       </div>
+       {% endif %}
+      <div class="row">
+         <div class="col-md-8">
+            <div class="text-bg">
+               <h1> <span class="blodark" id="verdictname"> Verdict </span><br></h1>
+               <p class="blodark">Where opinions become verdicts.<br><br>Discover the truth behind the hype.<br><br>Do Share your opinion.</p>
+               <a class="read_more" href="/review">Write now</a>
+            </div>
+         </div>
+         
+      </div>
+   </div>
+</section>
+
+
+<!-- end banner -->
+<!-- six_box section -->
+<div id="brands" class="six_box">
+   <div class="container-fluid">
+      <div class="row">
+      <div class="col-md-12">
+   <div class="titlepage  text-center" style="border-bottom: #f2c119 solid 5px;margin-bottom:1rem;">
+      <h2>Categories</h2>
+   </div>
+</div>
+</div>
+      <div class="row">
+         <div class="col-md-4 col-sm-15  pa_left">
+            <div class="six_probpx yellow_bg">
+               <a href="/beauty/"><i><img src=" {% static 'images/beauty.png' %} " alt="#"  width="150px"/></i></a>
+               <span>Beauty</span>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-18 pa_left">
+            <div class="six_probpx bluedark_bg">
+               <a href="electronics/"><i><img src=" {% static 'images/electronics.png' %} " alt="#" height="50px" width="164px"/></i></a>
+               <span>Electronics</span>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-18 pa_left">
+            <div class="six_probpx yellow_bg">
+               <a href="places/"><i><img src=" {% static 'images/places.png' %} " alt="#" height="50px" width="112px"/></i></a>
+               <span>Places</span>
+            </div>
+         </div>
+         
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end six_box section -->
+<!-- project section --><div id="project" class="project">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage">
+               <h2>Featured Brands and Places</h2>
+            </div>
+         </div>
+      </div>
+          <div class="row">
+      <div class="product_main">
+       
+            <div class="project_box" >
+               <div class="" ><a href="#" class='brands' id='Boat' ><img  src=" {% static 'images/brands/boat.jfif'%} " alt="#"/></a></div>
+               <h3>BOAT</h3>
+            </div>
+      
+       
+            <div class="project_box ">
+               <div class="" ><a href="#" class='brands' id='Realme'><img  src=" {% static 'images/brands/realme.png'%} " alt="#"/></a></div>
+               <h3 >REALME</h3>
+            </div>
+         
+            <div class="project_box">
+               <div class="" ><a href="#" class='brands' id='BlueStar'><img  src=" {% static 'images/brands/bluestar.jfif'%}" alt="#"/></a></div>
+               <h3>BLUE STAR</h3>
+            </div>
+        
+            <div class="project_box">
+               <div class="" ><a href="#" class='brands' id='Fastrack'><img  src=" {% static 'images/brands/fastrack.jfif'%} " alt="#"/></a></div>
+               <h3>FASTRACK</h3>
+            </div>
+        
+            <div class="project_box">
+               <div class="" ><a href="#" class='brands' id='Oppo'><img  src=" {% static 'images/brands/oppo.jfif'%}" alt="#"/></a></div>
+               <h3>OPPO</h3>
+            </div>
+        
+      
+            <div class="project_box ">
+               <div class="" ><a href="#" class='brands' id='Lakme'><img  src=" {% static 'images/beauty/lakme.jfif'%} " alt="#"/></a></div>
+               <h3>LAKME</h3>
+            </div>
+        
+            <div class="project_box ">
+               <div class="" ><a href="#" class='brands' id='MamaEarth'><img  src=" {% static 'images/beauty/mama earth.jfif'%} " alt="#"/></a></div>
+               <h3 >MAMA EARTH</h3>
+            </div>
+         
+            <div class="project_box">
+               <div class="" ><a href="#" class='brands' id='Loreal'><img  src=" {% static 'images/beauty/loreal.jfif'%} " alt="#"/></a></div>
+               <h3>LOREAL</h3>
+            </div>
+         
+            <div class="project_box">
+               <div class="" ><a href="#" class='brands' id='Nivia'><img  src=" {% static 'images/beauty/nivia.jfif'%} " alt="#"/></a></div>
+               <h3>NIVIA</h3>
+            </div>
+         
+            <div class="project_box">
+               <div class="" ><a href="#" class='places' id='Vizianagaram'><img  src=" {% static 'images/beauty/himalaya.jfif'%} " alt="#"/></a></div>
+               <h3>Himalaya</h3>
+            </div>
+         
+      
+            <div class="project_box ">
+               <div class="" ><a href="#" class='places' id='Hyderabad'><img  src=" {% static 'images/rest/Hyderabad.png'%} " alt="#"/></a></div>
+               <h3>Hyderabad</h3>
+            </div>
+         
+            <div class="project_box ">
+               <div class="" ><a href="#" class='places' id='Mumbai'><img  src=" {% static 'images/rest/mumbai.jfif'%} " alt="#"/></a></div>
+               <h3 >Mumbai</h3>
+            </div>
+         
+            <div class="project_box">
+               <div class="" ><a href="#" class='places' id='Delhi'><img  src=" {% static 'images/rest/delhi.jfif'%} " alt="#"/></a></div>
+               <h3>Delhi</h3>
+            </div>
+        
+            <div class="project_box">
+               <div class="" ><a href='#' class='places' id='Visakhapatnam'><img  src=" {% static 'images/rest/visakhapatnam.jfif'%} " alt="#"/></a></div>
+               <h3>Vizag</h3>
+            </div>
+         
+            <div class="project_box">
+               <div class="" ><a href="#" class='places' id='Bengaluru'><img  src=" {% static 'images/rest/bengalore.jfif'%} " alt="#"/></a></div>
+               <h3>Bengaluru</h3>
+            </div>
+        
+         
+      </div>
+      </div>
+   </div>
+</div>
+<!-- end project section -->
+<!-- fashion section -->
+<section class="banner_main2">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-8">
+            <div class="text-bg">
+               <p class="blodark" style="font-size:30px;color: white;">Read reviews. Write reviews.
+                  <br><br>Find companies you can trust. </p><br>
+               <p style="font-size:60;color: aliceblue;">Share your experiences</p>
+               <a class="read_more" href="#">Write now</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- end fashion section -->
+<!-- news section -->
+
+<div class="news" id="news">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage">
+               <h2>Recent Reviews</h2>
+            </div>
+         </div>
+      </div>
+      <div id="posts-box"></div>
+<div id="spinner-box" class="not-visible">
+    <div class="spinner-border text-primary" role="status"></div>
+</div>
+<div id="loading-box">
+    <button class="btn btn-primary"  id="load-btn">Load more</button>
+</div>
+      
+      </div>
+   </div>
+</div>
+
+<script>
+
+   let brands = document.querySelectorAll('.brands');
+   let cities = document.querySelectorAll('.places');
+
+   // 2. loop through the brands and add the event listener to each element
+   brands.forEach(brand => {
+      brand.addEventListener('click', function(){
+
+         this.setAttribute("href", '/getproducts/'+this.id+'/');
+         console.log(this)  /* add colour to clicked element only */
+      } );
+   });
+   cities.forEach(city => {
+      city.addEventListener('click', function(){
+         this.setAttribute("href", '/getplaces/'+this.id+'/');
+         console.log(this)  /* add colour to clicked element only */
+      } );
+   });
+   const postsBox = document.getElementById('posts-box')
+console.log(postsBox)
+const spinnerBox = document.getElementById('spinner-box')
+const loadBtn = document.getElementById('load-btn')
+const loadBox = document.getElementById('loading-box')
+let visible = 3
+
+const handleGetData = () => {
+    $.ajax({
+        type: 'GET',
+        url: `/recent-review/${visible}/`,
+        success: function(response){
+            maxSize = response.max
+            const elec = response.elec
+            const place = response.place
+            spinnerBox.classList.remove('not-visible')
+            setTimeout(()=>{
+                spinnerBox.classList.add('not-visible')
+                elec.map(post=>{
+                    console.log(post.id)
+                    postsBox.innerHTML += `<div class="row">
+                     <div class="col-md-12 margin_top40">
+                        <div class="row d_flex">
+                           <div class="col-md-5">
+                              <div class="news_img">
+                                 <figure><img class="review-img" src="images/${post.image}"></figure>
+                              </div>
+                           </div>
+                           <div class="col-md-7">
+                              <div class="news_text">
+                                 <h3>${post.brand_id} - ${post.product_id} (${post.rating} star )</h3>
+                                 <span>${post.date}</span> 
+                                 <div class="date_like">
+
+                                    <span>By </span><span class="pad_le">${post.name}</span>
+                                 </div>
+                                 <p>${post.review}
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>`
+                })
+                place.map(post=>{
+                    console.log(post.id)
+                    postsBox.innerHTML += `<div class="row">
+                     <div class="col-md-12 margin_top40">
+                        <div class="row d_flex">
+                           <div class="col-md-5">
+                              <div class="news_img">
+                                 <figure><img class="review-img" src="images/${post.image}"></figure>
+                              </div>
+                           </div>
+                           <div class="col-md-7">
+                              <div class="news_text">
+                                 <h3>${post.city_id} - ${post.place_id} (${post.rating} star )</h3>
+                                 <span>${post.date}</span> 
+                                 <div class="date_like">
+
+                                    <span>By </span><span class="pad_le">${post.name}</span>
+                                 </div>
+                                 <p>${post.review}
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>`
+                })
+                if(maxSize){
+                    console.log('done')
+                    loadBox.innerHTML = "<h1 class='text-bold text-center'> <b>No More Reviews to Load</b></h1>"
+                }
+            }, 500)
+        },
+        error: function(error){
+            console.log(error)
+        }
+    })
+}
+
+handleGetData()
+
+loadBtn.addEventListener('click', ()=>{
+    visible += 3
+    handleGetData()
+})
+</script>
+      
+      {% endblock content %}

@@ -1,0 +1,98 @@
+{% extends 'home/base.html' %}
+      {% load static %}
+      {% block content %}
+      <div class="blue_bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Featured Brands in Electronics</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- project section -->
+      <div id="project" class="project">
+         <div class="container">
+         
+          
+            <div class="row">
+               <div class="product_main">
+       
+                  <div class="project_box " >
+                     <div class="" ><a href="#" class='brands' id='Boat' ><img  src=" {% static 'images/brands/boat.jfif'%} " alt="#"/></a></div>
+                     <h3>BOAT</h3>
+                  </div>
+            
+             
+                  <div class="project_box ">
+                     <div class="" ><a href="#" class='brands' id='Realme'><img  src=" {% static 'images/brands/realme.png'%} " alt="#"/></a></div>
+                     <h3 >REALME</h3>
+                  </div>
+               
+                  <div class="project_box">
+                     <div class="" ><a href="#" class='brands' id='BlueStar'><img  src=" {% static 'images/brands/bluestar.jfif'%}" alt="#"/></a></div>
+                     <h3>BLUE STAR</h3>
+                  </div>
+              
+                  <div class="project_box">
+                     <div class="" ><a href="#" class='brands' id='Fastrack'><img  src=" {% static 'images/brands/fastrack.jfif'%} " alt="#"/></a></div>
+                     <h3>FASTRACK</h3>
+                  </div>
+              
+                  <div class="project_box">
+                     <div class="" ><a href="#" class='brands' id='Oppo'><img  src=" {% static 'images/brands/oppo.jfif'%}" alt="#"/></a></div>
+                     <h3>OPPO</h3>
+                  </div>
+              
+            
+                  <div class="project_box ">
+                     <div class="" ><a href="#" class='brands' id='LG'><img  src=" {% static 'images/brands/lg.png'%} " alt="#"/></a></div>
+                     <h3>LG</h3>
+                  </div>
+              
+                  <div class="project_box ">
+                     <div class="" ><a href="#" class='brands' id='Dell'><img  src=" {% static 'images/brands/dell.jfif'%} " alt="#"/></a></div>
+                     <h3 >DELL</h3>
+                  </div>
+               
+                  <div class="project_box">
+                     <div class="" ><a href="#" class='brands' id='Acer'><img  src=" {% static 'images/brands/acer.png'%} " alt="#"/></a></div>
+                     <h3>ACER</h3>
+                  </div>
+               
+                  <div class="project_box">
+                     <div class="" ><a href="#" class='brands' id='HP'><img  src=" {% static 'images/brands/hp.png'%} " alt="#"/></a></div>
+                     <h3>HP</h3> 
+               </div>
+               <div class="project_box">
+                  <div class="" ><a href="#" class='brands' id='Samsung'><img  src=" {% static 'images/brands/samsung.png'%} " alt="#"/></a></div>
+                  <h3>SAMSUNG</h3>
+               </div>
+               
+            </div>
+            </div>
+         </div>
+      </div>
+      <script>
+
+         let brands = document.querySelectorAll('.brands');
+         let cities = document.querySelectorAll('.places');
+      
+         // 2. loop through the brands and add the event listener to each element
+         brands.forEach(brand => {
+            brand.addEventListener('click', function(){
+      
+               this.setAttribute("href", '/getproducts/'+this.id+'/');
+               console.log(this)  /* add colour to clicked element only */
+            } );
+         });
+         cities.forEach(city => {
+            city.addEventListener('click', function(){
+               this.setAttribute("href", '/getplaces/'+this.id+'/');
+               console.log(this)  /* add colour to clicked element only */
+            } );
+         });
+      </script>
+      {% endblock content %}

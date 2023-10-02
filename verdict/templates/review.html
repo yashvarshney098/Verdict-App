@@ -1,0 +1,36 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container" style="margin:3rem auto; width:75%"> 
+<div id="brands" class="six_box">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-4 col-sm-15  pa_left">
+             <div class="six_probpx yellow_bg">
+                <a href="review/beauty"><i><img src=" {% static 'images/beauty.png' %} " alt="#"  width="150px"/></i></a>
+                <span>Beauty</span>
+             </div>
+          </div>
+          <div class="col-md-4 col-sm-18 pa_left">
+             <div class="six_probpx bluedark_bg">
+                <a href="review/electronics"><i><img src=" {% static 'images/electronics.png' %} " alt="#" height="50px" width="164px"/></i></a>
+                <span>Electronics</span>
+             </div>
+          </div>
+          <div class="col-md-4 col-sm-18 pa_left">
+             <div class="six_probpx yellow_bg">
+                <a href="review/place"><i><img src=" {% static 'images/places.png' %} " alt="#" height="50px" width="112px"/></i></a>
+                <span>Places</span>
+             </div>
+          </div>
+          
+          </div>
+       </div>
+    </div>
+ </div>
+</div>
+
+{% endblock content %}

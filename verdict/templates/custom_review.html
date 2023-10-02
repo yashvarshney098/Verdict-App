@@ -1,0 +1,173 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+   <div class='container'>
+     <h1 class='text-center text-bold text-capitalize m-5 '>{{cat}} Review</h1>
+   </div>
+    <div class="container m-3 w-75">
+    {% comment %} <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form> {% endcomment %}
+      <form method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name='name' class="form-control" required id="name" placeholder="Enter Name">
+          </div>
+          {% if request.session.message %}
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" readonly value={{email}} name='email' required id="email" placeholder="Enter email">
+          </div>
+          {% else %}
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" name='email' required id="email" placeholder="Enter email">
+          </div>
+          {% endif %}
+          {% if flag %}
+          <div class="form-group">
+            City :
+            <div class="dropdown-group d-flex">
+              <select name="city" id="City" class="form-control">       
+                  <option value="0">--Select City--</option>     
+                  {% for item in city  %}
+                  <option value="{{item.id}}">{{item.name}}</option> 
+                  {% endfor %}
+              </select>
+              <a href="/city/create" id="add_brand" onclick="return showAddPopup(this);"><button type="submit" class="popupbtn btn btn-secondary mx-2">+</button></a>
+  
+  
+            </div>
+          </div>
+          <div class="form-group">
+            Place
+            <div class="dropdown-group d-flex">
+              <select name="place" id="Place" class="form-control">
+                  <option value="0">--Select Place--</option>  
+                  {% for item in place  %}
+                  <option value="{{item.city_id}}" data-size="{{item.id}}">{{ item.name }}</option>
+                  {% endfor %}  
+              </select>
+              <input type="hidden" id='selectedplace' name="theInputGroup" value="0" />
+              <a href="/place/create" id="add_brand" onclick="return showAddPopup(this);"><button type="submit" class="popupbtn btn btn-secondary mx-2">+</button></a>
+            </div>  
+        </div>
+          {% else %} 
+          <div class="form-group">
+              Brand :
+              <div class="dropdown-group d-flex">
+                <select name="brand" id="Brand" class="form-control">       
+                    <option value="0">--Select Brand--</option>     
+                    {% for item in brand %}
+                    <option value="{{item.id}}">{{item.name}}</option> 
+                    {% endfor %}
+                </select>
+                <a href="/brand/create" id="add_brand" onclick="return showAddPopup(this);"><button type="submit" class="popupbtn btn btn-secondary mx-2">+</button></a>
+              </div>  
+            </div>
+            <div class="form-group">
+              Product
+              <div class="dropdown-group d-flex">
+                <select name="product" id="Product" class="form-control">
+                    <option value="0">--Select Product--</option>  
+                    {% for item in product  %}
+                    <option value="{{item.brand_id}}" data-size="{{item.id}}">{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="hidden" id='selectedproduct' name="theInputGroup" value="0" />
+                <a href="/product/create" id="add_brand" onclick="return showAddPopup(this);"><button type="submit" class="popupbtn btn btn-secondary mx-2">+</button></a>
+              </div>  
+            </div>
+          
+          {% endif %}
+      
+        <div class="form-row ">
+          <label for="rating" class="form-label">Rating</label>
+          <br>
+          <input type="range" name='rating' class="form-range  m-2" min="0" max="5" step="0.5" id="rating" required onchange="updateTextInput(this.value);">
+          <input type="text" id="textInput" value="" style="border:none;">
+          <br>
+        </div>
+        <div class="form-row ">
+          <label for="review">Review</label>
+          <textarea name='review' class="form-control" id="review"  required rows="3"></textarea>
+          <br>
+        </div>
+        <div class="form-row ">
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input name='image' type="file" class="form-control-file" id="image">
+          </div>
+        </div>
+
+        </div>
+       
+        <button type="submit" class="btn btn-primary m-5">Submit</button>
+      </form>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script>
+ 
+        $(document).ready(function(){ 
+         var brand = $("#Brand");
+         var product = $("#Product");
+         var $options = product.find('option'); 
+
+
+         brand.on('change',function(){
+            product.html($options.filter('[value="'+ this.value  +'"]'));
+            product.on('change',function(){
+              $('#selectedproduct').val( $(this).find(':selected').data('size') );
+              //console.log('sjdfjg')
+           }).trigger('change')
+         }).trigger('change'); 
+
+        
+         var city = $("#City");
+         var place = $("#Place");
+         var $options2 = place.find('option');
+
+         city.on('change',function(){
+            place.html($options2.filter('[value="'+this.value+'"]'));
+            place.on('change',function(){
+              $('#selectedplace').val( $(this).find(':selected').data('size') );
+              //console.log('sjdfjg')
+           }).trigger('change')
+          
+         }).trigger('change'); 
+
+
+        
+        }); 
+       
+        $("#edit_author").click(function(){
+          author_name = $("#id_author option:selected").text();
+          var data = {"author_name":author_name};
+            $.ajax({
+                type : 'GET',
+                url :  '/author/ajax/get_author_id',
+                data : data,
+                success : function(data){
+                  var url = "/author/" + data['author_id'] + "/edit/";
+                  showEditPopup(url);
+                  window.opener.location.reload();
+                },
+                error: function(data) {
+                  alert("Something Went Wrong"); 
+                  window.opener.location.reload();
+                }
+            });
+        })
+        function updateTextInput(val) {
+          document.getElementById('textInput').value=val; 
+        }
+        </script> 
+
+{% endblock content %}

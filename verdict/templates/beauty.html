@@ -1,0 +1,95 @@
+{% extends 'home/base.html' %}
+      {% load static %}
+      {% block content %}
+<div class="blue_bg">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="titlepage">
+                <h2 >Featured Restaurants in Visakhapatnam</h2>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- project section -->
+ <div id="project" class="project">
+    <div class="container">
+    
+     
+       <div class="row">
+       <div class="product_main " >
+        
+             <div class="project_box ">
+               <a href=""  class='brands' id='Mama Earth' >
+                <div class="" ><img   src="{% static 'images/beauty/mama earth.jfif' %}" alt="#" /></div>
+                <strong><h3>Mama Earth</h3></a></strong>
+             </div>
+       
+        
+             <div class="project_box ">
+               <a href="" class='brands' id='Banjaras'>
+                <div class=" " ><img src="{% static 'images/beauty/banjaras.jfif' %}" alt="#" /></div>
+                <strong><h3>Banjaras</h3></a></strong>
+             </div>
+          
+             <div class="project_box ">
+               <a href="" class='brands' id='Himalaya'>
+                <div class="" ><img  src="{% static 'images/beauty/himalaya.jfif' %}" alt="#" /></div>
+                <strong><h3>Himalaya</h3></a></strong>
+             </div>
+         
+             <div class="project_box ">
+               <a href="" class='brands' id='Lakme'>
+                <div class="" ><img  src="{% static 'images/beauty/lakme.jfif' %}" alt="#" /></div>
+                <strong><h3>Lakme</h3></a></strong>
+             </div>
+         
+             <div class="project_box ">
+               <a href="" class='brands' id='Loreal'>
+                <div class="" ><img  src=" {% static 'images/beauty/loreal.jfif' %}" alt="#" /></div>
+                <strong><h3>Loreal</h3></a></strong>
+             </div>
+         
+       
+             <div class="project_box ">
+               <a href="" class='brands' id='Nivia'>
+                <div class="" ><img  src=" {% static 'images/beauty/nivia.jfif' %}" alt="#" /></div>
+               <strong> <h3>Nivia</h3></a></strong>
+             </div>
+             <div class="project_box ">
+               <a href="" class='brands' id='Patanjali'>
+                <div class="" ><img  src=" {% static 'images/beauty/patanjali.jfif' %}" alt="#" /></div>
+                <strong><h3>Patanjali</h3></a></strong>
+             </div>
+          
+             <div class="project_box ">
+               <a href="" class='brands' id='Sugar'>
+                <div class="" ><img  src=" {% static 'images/beauty/sugar.jfif' %}" alt="#" /></div>
+                <strong><h3>Sugar</h3></a></strong>
+             </div>
+            </div>
+        </div>
+     </div>
+  </div>
+  <script>
+
+   let brands = document.querySelectorAll('.brands');
+   let cities = document.querySelectorAll('.places');
+
+   // 2. loop through the brands and add the event listener to each element
+   brands.forEach(brand => {
+      brand.addEventListener('click', function(){
+
+         this.setAttribute("href", '/getproducts/'+this.id+'/');
+         console.log(this)  /* add colour to clicked element only */
+      } );
+   });
+   cities.forEach(city => {
+      city.addEventListener('click', function(){
+         this.setAttribute("href", '/getplaces/'+this.id+'/');
+         console.log(this)  /* add colour to clicked element only */
+      } );
+   });
+</script>
+             {% endblock content %}

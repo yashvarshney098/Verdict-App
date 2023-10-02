@@ -1,0 +1,43 @@
+/* media queries*/
+
+@media screen and (max-width : 550px){
+    .navigation.navbar-dark .navbar-toggler-icon {
+        margin-top: 1.2rem;
+    }
+    .navigation.navbar-dark .navbar-nav .active>.nav-link{
+        color:#183661;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link:hover {
+        background-color: #f2c119;
+        color:black;
+   }
+   
+     #verdictname{
+        font-size: 65px;
+     }
+    .product_main .project_box h3{
+            font-size: 13px;
+     }
+     .banner_main2 p{
+        font-size: 13px;
+     }
+     .news_text h3{
+        font-size: 15px;
+     }
+
+     .news_text span{
+        font-size: 10px;
+     }
+     .footer p {
+        font-size: 10px;
+     }
+      .blue_bg .titlepage h2{
+        font-size: 25px !important;
+     }
+}
+
+@media screen and (min-width : 800px )and ( max-width:1200px) {
+    .write_review_btn{
+        display: none;
+    }
+}

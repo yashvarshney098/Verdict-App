@@ -1,0 +1,86 @@
+{% extends 'home/base.html' %}
+      {% load static %}
+      {% block content %}
+      <div class="blue_bg">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="titlepage">
+                    <h2>Featured Restaurants in Visakhapatnam</h2>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- project section -->
+     <div id="project" class="project">
+        <div class="container">
+           <div class="row">
+           <div class="product_main " >
+            
+            <div class="project_box">
+               <div class="" ><a href="#" class='places' id='Vizianagaram'><img  src=" {% static 'images/rest/vizianagaram.png'%} " alt="#"/></a></div>
+               <h3>Vizianagaram</h3>
+            </div>
+         
+      
+            <div class="project_box ">
+               <div class="" ><a href="#" class='places' id='Hyderabad'><img  src=" {% static 'images/rest/Hyderabad.png'%} " alt="#"/></a></div>
+               <h3>Hyderabad</h3>
+            </div>
+         
+            <div class="project_box ">
+               <div class="" ><a href="#" class='places' id='Mumbai'><img  src=" {% static 'images/rest/mumbai.jfif'%} " alt="#"/></a></div>
+               <h3 >Mumbai</h3>
+            </div>
+         
+            <div class="project_box">
+               <div class="" ><a href="#" class='places' id='Delhi'><img  src=" {% static 'images/rest/delhi.png'%} " alt="#"/></a></div>
+               <h3>Delhi</h3>
+            </div>
+        
+            <div class="project_box">
+               <div class="" ><a href='#' class='places' id='Visakhapatnam'><img  src=" {% static 'images/rest/visakhapatnam.png'%} " alt="#"/></a></div>
+               <h3>Visakhapatnam</h3>
+            </div>
+         
+            <div class="project_box">
+               <div class="" ><a href="#" class='places' id='Bengaluru'><img  src=" {% static 'images/rest/bengalore.png'%} " alt="#"/></a></div>
+               <h3>Bengaluru</h3>
+            </div>
+        
+            <div class="project_box">
+               <div class="" ><a href="#" class='places' id='Kolkata'><img  src=" {% static 'images/rest/Kolkata.jfif'%} " alt="#"/></a></div>
+               <h3>Kolkata</h3>
+            </div>
+              
+            <div class="project_box">
+               <div class="" ><a href="#" class='places' id='Chennai'><img  src=" {% static 'images/rest/chennai.jfif'%} " alt="#"/></a></div>
+               <h3>chennai</h3>
+            </div>
+
+                </div>
+            </div>
+         </div>
+      </div>
+      <script>
+
+         let brands = document.querySelectorAll('.brands');
+         let cities = document.querySelectorAll('.places');
+      
+         // 2. loop through the brands and add the event listener to each element
+         brands.forEach(brand => {
+            brand.addEventListener('click', function(){
+      
+               this.setAttribute("href", '/getproducts/'+this.id+'/');
+               console.log(this)  /* add colour to clicked element only */
+            } );
+         });
+         cities.forEach(city => {
+            city.addEventListener('click', function(){
+               this.setAttribute("href", '/getplaces/'+this.id+'/');
+               console.log(this)  /* add colour to clicked element only */
+            } );
+         });
+      </script>
+      {% endblock content %}

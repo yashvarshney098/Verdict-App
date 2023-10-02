@@ -1,0 +1,73 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container m-3 p-2 w-75">
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+      </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        Brand :
+          <select name="brand" id="Brand" class="form-control">       
+              <option value="0">--Select Brand--</option>     
+              {% for item in brand  %}
+              <option value="{{item.id}}">{{item.name}}</option> 
+              {% endfor %}
+          </select>
+      </div>
+      <div class="form-group">
+        Product
+          <select name="product" id="Product" class="form-control">
+              <option value="0">--Select Product--</option>  
+              {% for item in product  %}
+              <option value="{{item.brand_id}}">{{ item.name }}</option>
+              {% endfor %}
+          </select>
+      </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<!-- <div class="container">
+    <div class="card body">
+      <br/>
+      <br/>
+      <br/>
+      
+      <br class="row">
+      <div class="m-3" >
+       Name:
+        <input type="text" name="name" id="name">
+    </div>
+      <div class="m-3" >
+       Mail:
+        <input type="text"  name="mail" id="mail ">
+    </div>
+
+ 
+     </div>
+    </div>
+  </div> -->
+   
+<script>
+ 
+    $(document).ready(function(){ 
+     var brand = $("#Brand");
+     var product = $("#Product");
+     var $options = product.find('option'); 
+     brand.on('change',function(){
+        product.html($options.filter('[value="'+ this.value  +'"]'));
+     }).trigger('change'); 
+    }); 
+    </script> 
+    {% endblock content %}
