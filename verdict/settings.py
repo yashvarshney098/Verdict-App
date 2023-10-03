@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,10 +29,7 @@ ALLOWED_HOSTS = []
 
 CORS_ORIGIN_ALLOW_ALL=True
 # Application definition
-CORS_ALLOWED_ORIGINS = [
-"http://localhost:8080",
-"http://127.0.0.1:8000"
-]
+
 
 
 # Application definition
@@ -67,7 +64,7 @@ ROOT_URLCONF = 'verdict.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,7 +128,7 @@ STATICFILES_DIRS  = [
     os.path.join(BASE_DIR, 'static')
 ]
 # Base url to serve media files
-MEDIA_URL = '/images/'
+MEDIA_URL = 'images/'
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 # Default primary key field type
